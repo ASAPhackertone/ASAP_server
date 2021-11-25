@@ -39,3 +39,4 @@ out/
 
 
 **/asap/config/secret/
+**/resources/application.properties
