@@ -15,7 +15,7 @@ public class MatchService {
 
 
     private final MatchDao matchDao;
-    private final JwtService jwtService;
+
     /**
      * 해당 공고 매칭 완료 처리
      */
