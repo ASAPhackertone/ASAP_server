@@ -27,7 +27,7 @@ public class AuthInterceptor implements HandlerInterceptor {
 
     private Optional<String> getToken(HttpServletRequest servletRequest) {
 
-        String token = servletRequest.getHeader("Authorization-Bearer");
+        String token = servletRequest.getHeader("Authorization");
 
         if(StringUtils.hasText(token))return Optional.of(token);
         else return Optional.empty();

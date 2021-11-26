@@ -6,6 +6,7 @@ import hae.server.asap.domain.card.dto.CreateAnnouncementReq;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -20,7 +21,7 @@ public class CardController {
      * 공고 만들기
      */
     @PostMapping("/annountment")
-    public BaseResponse<String> createAnnouncement(@RequestParam CreateAnnouncementReq createAnnouncementReq){
+    public BaseResponse<String> createAnnouncement(@RequestBody CreateAnnouncementReq createAnnouncementReq){
 
         try{
             cardService.createAnnouncement(createAnnouncementReq);
