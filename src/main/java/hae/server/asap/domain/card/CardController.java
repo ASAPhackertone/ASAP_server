@@ -16,7 +16,6 @@ public class CardController {
 
     private final CardService cardService;
 
-
     /**
      * 공고 만들기
      */

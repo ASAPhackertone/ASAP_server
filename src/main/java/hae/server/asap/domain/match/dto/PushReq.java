@@ -4,13 +4,13 @@ import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 
-@RequiredArgsConstructor
-@Setter
 @Getter
-public class ShowApplyReq {
+@Setter
+@RequiredArgsConstructor
+public class PushReq {
 
+    private final String title;
+    private final int flag;
     private final String name;
-    private final double latitude;
-    private final double longitude;
 
 }

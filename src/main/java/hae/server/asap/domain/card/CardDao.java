@@ -21,15 +21,15 @@ public class CardDao {
         int userId = this.jdbcTemplate.queryForObject(getUserIdBynameQuery,int.class,createAnnouncementReq.getName());
 
 
-        String createAnnouncementQuery = "INSERT INTO announcecard(u_id,user_name,location,latitude,longitude,payment,title" +
-                "category, desc,start_time,end_time) values(?,?,?,?,?,?,?,?,?,?,?)";
+        String createAnnouncementQuery = "INSERT INTO announcecard(u_id,user_name,location,coordinate,payment,title" +
+                "category, desc,start_time,end_time) values(?,?,?,ST_GeomFromText('POINT(? ?)'),?,?,?,?,?,?)";
 
         List<String> category = createAnnouncementReq.getCategory();
         Object[] createAnnounceQueryParam = new Object[]{userId,
                 createAnnouncementReq.getName(),
-                createAnnouncementReq.getLocation(),
-                createAnnouncementReq.getLatitude(),
+                createAnnouncementReq.getLocation(),//경도 위도 순서로 줘야함
                 createAnnouncementReq.getLongitude(),
+                createAnnouncementReq.getLatitude(),
                 createAnnouncementReq.getPayment(),
                 createAnnouncementReq.getTitle(),
                 category.get(0), //큰 분류
