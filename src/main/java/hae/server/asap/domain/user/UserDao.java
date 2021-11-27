@@ -10,10 +10,11 @@ import hae.server.asap.domain.user.dto.CreateUserReq;
 @Repository
 public class UserDao {
     private final JdbcTemplate jdbcTemplate;
+    private final JwtService jwtService;
 
     public void createUser(CreateUserReq createUserReq){
 
-        String token = JwtService.createJwt(createUserReq.getName());
+        String token = jwtService.createJwt(createUserReq.getName());
 
         String createUserQuery = "INSERT INTO User(token, name, email, password, phoneNumber) values(? ?,?,?,?)";
 
