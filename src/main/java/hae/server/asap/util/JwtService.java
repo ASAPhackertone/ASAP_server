@@ -45,11 +45,11 @@ public class JwtService {
     }
 
     /*
-    JWT에서 userIdx 추출
+    JWT에서 userName 추출
     @return int
     @throws BaseException
      */
-    public int getUserIdx() throws BaseException {
+    public String getUserName() throws BaseException {
         //1. JWT 추출
         String accessToken = getJwt();
         if(accessToken == null || accessToken.length() == 0){
@@ -66,8 +66,7 @@ public class JwtService {
             throw new BaseException(INVALID_JWT);
         }
 
-        // 3. userIdx 추출
-        return claims.getBody().get("userIdx",Integer.class);  // jwt 에서 userIdx를 추출합니다.
+        return claims.getBody().get("name",String.class);  // jwt 에서 userName추출
     }
 
 

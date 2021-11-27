@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class UserController {
 
 
-    // TODO : API 명세 참고하여서 로그인와 회원가입 작성..
+
     private final UserService userService;
 
     public UserController(UserService userService) {
@@ -36,7 +36,7 @@ public class UserController {
 
         try {
             userService.createUser(createUserReq);
-            return new BaseResponse<String>("로그인완료!");
+            return new BaseResponse<String>("가입완료!");
         }catch (BaseException e){
             return new BaseResponse<>(e.getStatus());
         }
